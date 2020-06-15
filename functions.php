@@ -19,6 +19,9 @@
         if (is_home()) {
             wp_enqueue_style('home', get_template_directory_uri()."/css/home.css",array(), wp_get_theme()->get('Version'));
         }
+        if (is_single()) {
+            wp_enqueue_style('single', get_template_directory_uri()."/css/single.css",array(), wp_get_theme()->get('Version'));
+        }
     }
 
     function theme_register_nav_menus() {
