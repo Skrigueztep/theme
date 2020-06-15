@@ -13,6 +13,9 @@
         if (is_front_page()){
             wp_enqueue_style('front-page', get_template_directory_uri()."/css/front-page.css",array(), wp_get_theme()->get('Version'));
         }
+        if (is_404()) {
+            wp_enqueue_style('404', get_template_directory_uri()."/css/404.css",array(), wp_get_theme()->get('Version'));
+        }
     }
 
     function theme_register_nav_menus() {
