@@ -7,6 +7,7 @@
 
     function theme_enqueue_scripts() {
         wp_enqueue_style('style', get_stylesheet_uri(),array(), wp_get_theme()->get('Version'));
+        wp_enqueue_style('header', get_template_directory_uri()."/css/header.css",array(), wp_get_theme()->get('Version'));
         // wp_enqueue_style('', get_template_directory_uri()."",array(), wp_get_theme()->get('Version'));
         // wp_enqueue_script('', get_template_directory_uri()."",array(), wp_get_theme()->get('Version'), true);
     }
