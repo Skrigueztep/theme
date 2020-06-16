@@ -35,6 +35,12 @@
         ));
     }
 
+    function theme_register_default_menus() {
+        // Use the function below to create a new menu with default values
+        // generate_theme_menu('Menu name', array(), 'menu_identifier');
+    }
+
     add_action('init', 'theme_setup');
     add_action('init', 'theme_register_nav_menus');
     add_action('wp_enqueue_scripts', 'theme_enqueue_scripts', 10);
+    add_action('after_switch_theme', 'theme_register_default_menus');
