@@ -46,3 +46,37 @@
         update_option( 'menu_check', true );
     }
 
+    /**
+     * NOTE: Always validate the page to create that not exist
+     *
+     * Create a page
+     * @param string $title => Title page
+     * @param string $slug => (Optional) Title of page
+     * @param string $template => (Optional) Template page for custom template
+     * @return int | null $page_id => New page id
+     */
+    function create_post($title = '', $slug = '', $template = '') {
+        $page_id = null;
+        if (isset($_GET['activated']) && is_admin()){
+
+            if (empty($title)) die('Theme error: create_post function error, title is empty');
+
+            $new_page = array(
+                'post_type' => 'page',
+                'post_title' => $title,
+                'post_content' => '',
+                'post_status' => 'publish',
+                'post_author' => 1,
+                'post_name'  => $slug,
+                'comment_status' => 'closed',
+                'ping_status' => 'closed'
+            );
+            $new_page_id = wp_insert_post($new_page);
+            $page_id = $new_page_id;
+            if(!empty($template)){
+                update_post_meta($new_page_id, '_wp_page_template', $template);
+            }
+        }
+        return $page_id;
+    }
+
