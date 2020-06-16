@@ -1,5 +1,7 @@
 <?php
 
+    include_once(dirname(__FILE__)."/core/utils.php");
+
     function theme_setup() {
         add_theme_support("title-tag");
         add_theme_support('post-thumbnails');
