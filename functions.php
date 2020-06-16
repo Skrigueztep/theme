@@ -34,4 +34,5 @@
     }
 
     add_action('init', 'theme_setup');
+    add_action('init', 'theme_register_nav_menus');
     add_action('wp_enqueue_scripts', 'theme_enqueue_scripts', 10);
