@@ -1,0 +1,7 @@
+.divider {
+    border-left: 5px solid #008FFF;
+    background: white;
+    padding: 8px;
+    box-sizing: border-box;
+    font-weight: 500;
+}
