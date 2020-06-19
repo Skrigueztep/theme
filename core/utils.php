@@ -1,5 +1,7 @@
 <?php
 
+    include_once(dirname(__FILE__)."/../includes/custom-controls/custom-divider/title-control-divider.php");
+
     /**
      * Add one element | item to menu
      *
@@ -78,5 +80,23 @@
             }
         }
         return $page_id;
+    }
+
+    /**
+     *  Create a Custom Divider with parameters passed
+     *
+     * @param $wp_customize -> WP_Customize_Manager object
+     * @param $section -> Section to show divider
+     * @param $title -> Text to show inside divider block
+     * @param $count -> Unique identifier to create multiple sections
+     */
+    function divider($wp_customize, $section, $title, $count) {
+        /** Divider */
+        $wp_customize->add_setting('theme_divider_settings'.$count);
+        $wp_customize->add_control(new Title_Control_Divider($wp_customize, 'main_page_divider'.$count, array(
+            'label' => __($title, "maplander_theme"),
+            'settings' => 'theme_divider_settings'.$count,
+            'section' => $section
+        )));
     }
 
