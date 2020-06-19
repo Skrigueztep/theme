@@ -45,8 +45,10 @@
      * Function to add type="module" on script tags, needed for enable imports from utils.js
      */
     function theme_add_module_type_scripts($tag, $handler, $src) {
-        // if ($handler !== 'theme-utils') return $tag; else return $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
-        $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+        if ($handler === 'theme-utils') {
+            $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+            return $tag;
+        }
         return $tag;
     }
 
