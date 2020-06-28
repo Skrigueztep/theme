@@ -37,8 +37,11 @@
     }
 
     function theme_register_default_menus() {
+        // First you should validate if menu already exists and already registered
+        // if (!has_nav_menu('menu_identifier')) {
         // Use the function below to create a new menu with default values
-        // generate_theme_menu('Menu name', array(), 'menu_identifier');
+        //     generate_theme_menu('Menu name', array(), 'menu_identifier');
+        // }
     }
 
     /**
